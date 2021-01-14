@@ -1,0 +1,35 @@
+{%extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center">New Customer</h2>
+            <HR>
+            <p> By creating an account with our website, you will be able to move through note uploadinf and downloading process</p></center>
+            <center><a herf="{% url 'signup' %}class="btn btn-danger text-white mt-5"><CREATE AN ACCOUNT> </a>
+        </div>
+        <div class= "col-sm-6">
+            <h2 class="text-center">USER LOGIN</h2>
+            <HR>
+            <h2 class="text-center">New Customer</h2>
+            <HR>
+            <form method="post">
+                {%csrf_token %}
+                <label>Email Address</label>
+                <input type = "email"  class= "form=control" placeholder="Enter EmailID" name="emailid">
+                <label>Password</label>
+                <input type = "password" class="form=control " placeholder="Enter Password" name="pwd">
+                <input type =  submit class="btn btn-danger mt=2" valu=login">
+            </form>
+            <p> By creating an account with our website, you will be able to move through note uploadinf and downloading process</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock body %}
