@@ -1,0 +1,59 @@
+{%extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center">Existing Customer</h2>
+            <HR>
+            <p> By creating an account with our website, you will be able to move through note uploadinf and downloading process</p></center>
+            <center><a herf="{% url 'Login' %}class="btn btn-danger text-white mt-5"><CREATE AN ACCOUNT> </a>
+        </div>
+        <div class= "col-sm-6">
+            <h2 class="text-center">register with us</h2>
+            <HR>
+            <p> If you have not account with us , please signup</p>
+            <h2 class="text-center">New Customer</h2>
+            <HR>
+            <form method="post">
+                {%csrf_token %}
+                <label>FirstName</label>
+                <input type = "text"  class= "form=control" placeholder="Enter FirstName" name="First Name">
+                <label>LastName</label>
+                <input type = "text" class="form=control " placeholder="Enter Last Name" name="Last Name">
+                <label>Contact</label>
+                <input type = "text" class="form=control " placeholder="Enter Contact" name="Contact Number">
+                <label>EmailID</label>
+                <input type = "email" class="form=control " placeholder="Enter Email ID" name="EID">
+                <label>Password</label>
+                <input type = "text" class="form=control " placeholder="Enter Password" name="pwd">
+                <label>Branch</label>
+                <select class="form-control" name="branch">
+                    <option value="ComputerScience">Computer Science</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Bio Chemestry">Bio Chemestry</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Microbioligy">MicroBiology</option>
+                </select>
+
+                <label>Are you</label>
+                <select class="form-control" name="Role">
+                    <option value="Student">Student</option>
+                    <option value="Teacher">Teacher</option>
+
+                </select>
+                <input type> = submit class="btn btn-danger mt-2" value="SUBMIT">
+
+
+            </form>
+            <p> By creating an account with our website, you will be able to move through note uploadinf and downloading process</p>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock body %}
