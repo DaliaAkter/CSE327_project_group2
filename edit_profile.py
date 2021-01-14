@@ -1,14 +1,22 @@
 from django.shortcuts import render
-
-
+"""
+EDIT-PROFILE FUNCTION DOCUMENTATION
+___________________________________________________
+"""
 
 # Create your views here.
 def edit_profile(request):
     """
-    this function will let the user update their profile information.
+    This function will let the user update their profile information.
+    To give access, it checks if user is authenticated.
+    if 'True' user get access.
+    if 'False' redirect to Login page.
+
+    :param request: HTTP request-response protocol between a client and server.
+    :param type: HTTP response.
+    :return: returns the 'edit_profile.html' page  to authenticated user.
 
     """
-
   if not request.user.is_authenticated:
     return redirect('login')
     user = User.objects.get(id=request.user.id)
