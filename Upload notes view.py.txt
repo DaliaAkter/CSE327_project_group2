@@ -1,0 +1,15 @@
+def upload_notes(request):
+    error=""
+    if request.method=='POST':
+        b = request.POST['branch']
+        s = request.POST['subject']
+        n = request.Files['notesfile']
+        f = request.POST['filetype']
+        d = request.POST['description']
+        u = User.objects.filter(username=request.user.username)
+        try:
+            user = Notes.Objects.create(user=u,uploadingdate=date.today(),branch=b,subject=s,notesfile=n,filetype=f,description= d,status='pending')
+            error="no"
+        except:"yes"
+        d={'error':error}
+        return render(request,'upload.html',d)
