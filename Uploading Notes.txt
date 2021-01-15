@@ -1,0 +1,35 @@
+from datetime import date
+from django.contrib.auth import login
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from NotesSharingProject import models
+from notes.models import Notes
+
+
+def notes(request):
+    """
+    This method is used to display the request for upload_notes service online.
+
+    :param request:its a HttpResponse from user.
+    :type request: HttpResponse
+    :return: this method returns the html page means upload form when note upload  done if user login before and register
+    with the site.
+    :rtype: HttpResponse.
+    """
+    if not request.user.is_authenticated:
+        return redirect(login)
+    error=""
+    if request.method=='POST':
+        b = request.POST['branch']
+        s = request.POST['subject']
+        n = request.FILES['notesfile']
+        f = request.POST['filetype']
+        d = request.POST['description']
+        u = User.objects.filter(username=request.user.username).first()
+        try:
+            user = Notes.Objects.create(user=u,uploadingdate=date.today(),branch=b,subject=s,notesfile=n,filetype=f,description= d,status='pending')
+            error="no"
+        except:"yes"
+        d={'error':error}
+        return render(request,'upload.html',d)
+

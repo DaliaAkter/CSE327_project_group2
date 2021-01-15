@@ -1,0 +1,14 @@
+from django.shortcuts import render
+
+
+def login_admin(request):
+    """
+            This method is used to display the request for loginadmin in  online.
+
+            :param request:its a HttpResponse from user.
+            :type request: HttpResponse
+            :return: this method returns the html page before admin log in the page to log in website and see the user
+            information and notes information.
+            :rtype: HttpResponse.
+            """
+    return render(request,'login_admin.html')

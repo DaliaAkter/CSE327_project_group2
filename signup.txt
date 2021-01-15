@@ -1,0 +1,14 @@
+from django.shortcuts import render
+
+
+def signup(request):
+    """
+            This method is used to display the request for signup  online.
+
+            :param request:its a HttpResponse from user.
+            :type request: HttpResponse
+            :return: this method returns the html page after log in the page and get the
+            sign the signup to registered own self to see upload,download and view notes website.
+            :rtype: HttpResponse.
+            """
+    return render(request,'signup.html')
